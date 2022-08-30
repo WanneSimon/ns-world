@@ -1,0 +1,5 @@
+world-list-header: === world ===
+world-list-footer: =============
+world-not-existed: §2世界§1{0}§2不存在
+world-tp-success: §2您已传送至§1{0}
+command-only-player: §2此命令仅玩家可用

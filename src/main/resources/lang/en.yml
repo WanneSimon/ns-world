@@ -1,0 +1,5 @@
+world-list-header: === world ===
+world-list-footer: =============
+world-not-existed: §2The world §1{0} §2is not exist
+world-tp-success: §2You are in §1{0} §2now
+command-only-player: §2Only players allowed

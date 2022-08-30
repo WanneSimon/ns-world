@@ -1,0 +1,30 @@
+name: ns-world
+main: cc.wanforme.nukkit.nsworld.NSWorld
+version: "0.0.1"
+api: ["1.0.0"]
+load: POSTWORLD
+author: wanne
+authors: ["wanne"]
+
+commands:
+  w:
+    description: world teleport
+    usage: "/w [name]"
+    aliases: ["world"]
+    permission: nsWorld.command.world
+    permission-message: "You do not have the required permission to run /world"
+  wc:
+    description: generate world
+    usage: "/wc"
+    aliases: ["worldCreate"]
+    permission: nsWorld.command.worldCreate
+    permission-message: "You do not have the required permission to run /worldCreate"
+ 
+permissions:
+  nsWorld.command.world:
+    description: "world teleport"
+    default: true
+  nsWorld.command.worldCreate:
+    description: "generate world"
+    default: op
+
