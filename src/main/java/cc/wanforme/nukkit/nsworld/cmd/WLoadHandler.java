@@ -8,15 +8,15 @@ import cn.nukkit.command.CommandSender;
 import cn.nukkit.level.Level;
 
 /** load a world
- * /wm {load|unload} {name}
+ * /wl {load|unload} {name}
  * @author wanne
  * @date 2022-08-30
  */
 public class WLoadHandler extends FixedArgsHandler {
 	private static final String[] ARGS = { "{load|unload}", "{name}" };
 	
-	public WLoadHandler() {
-		super("wm", ARGS);
+	public WLoadHandler(String main) {
+		super(main, ARGS);
 	}
 
 	@Override

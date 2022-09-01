@@ -10,17 +10,17 @@ import cn.nukkit.command.CommandSender;
 import cn.nukkit.level.generator.Generator;
 
 /** generate a world
- * /wc {name} [type] {seed}
+ * /wc {name} [type] [seed]
  * @author wanne
  * @date 2022-08-30
  */
 public class WcHandler extends FixedOrderHandler {
 	private static final String[] ARGS = { "{name}", 
 			"[0|flat|1|normal|2|default|3|nether|4|the_end]",
-			"{seed}"};
+			"[seed]"};
 	
-	public WcHandler() {
-		super("wc", ARGS);
+	public WcHandler(String main) {
+		super(main, ARGS);
 	}
 
 	@Override
