@@ -44,7 +44,7 @@ public class WorldCreateHandler extends FixedOrderHandler {
     	
     	// check name ( 数字字母下划线短横线 )
     	Pattern pattern = Pattern.compile("^([\\w-])+$");
-    	if(pattern.matcher(name).matches()) {
+    	if(!pattern.matcher(name).matches()) {
     		// illegal name 
     		sender.sendMessage(LangHolder.Get("world-name-illegal"));
     		return true;

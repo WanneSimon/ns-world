@@ -24,8 +24,8 @@ d. 创建世界
 
 | 类型  | 数字  | 字符名称    |
 |:---:|:---:|:-------:|
-| 平坦  | 0   | flat    |
-| 正常  | 1   | normal  |
-| 默认  | 2   | default |
-| 下届  | 3   | nether  |
-| 末地  | 4   | the_end |
+| 默认 | 0 | default |
+| 正常 | 1 | normal  |
+| 平坦 | 2 |  flat   |
+| 下届 | 3 | nether  |
+| 末地 | 4 | the_end |

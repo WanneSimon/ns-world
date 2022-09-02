@@ -3,6 +3,8 @@ package cc.wanforme.nukkit.nsworld;
 import org.springframework.stereotype.Component;
 
 import cc.wanforme.nukkit.nsworld.cmd.WorldCommand;
+import cc.wanforme.nukkit.nsworld.cmd.WorldCreateCommand;
+import cc.wanforme.nukkit.nsworld.cmd.WorldLoadCommand;
 import cc.wanforme.nukkit.spring.plugins.command.NSPluginBase;
 
 /**
@@ -42,12 +44,9 @@ public class NSWorld extends NSPluginBase {
 //			
 //		};
 		
-    	// w 
     	this.registerNSCommand(new WorldCommand());
-    	
-    	// w {}
-    	
-    	// wc
+    	this.registerNSCommand(new WorldCreateCommand());
+    	this.registerNSCommand(new WorldLoadCommand());
     	
     }
     
