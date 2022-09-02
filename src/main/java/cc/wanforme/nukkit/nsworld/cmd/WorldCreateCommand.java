@@ -15,7 +15,7 @@ public class WorldCreateCommand extends NSCommand {
 
 	@Override
 	protected void initCommand() {
-		this.addHandler(new WcHandler(MAIN));
+		this.addHandler(new WorldCreateHandler(MAIN));
 	}
 
 }

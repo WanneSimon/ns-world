@@ -12,13 +12,19 @@ commands:
     usage: "/w [name]"
     aliases: ["world"]
     permission: nsWorld.command.world
-    permission-message: "You do not have the required permission to run /world"
+    permission-message: "You do not have the required permission to run /w"
   wc:
     description: generate world
-    usage: "/wc"
+    usage: "/wc {name} [type] [seed]"
     aliases: ["worldCreate"]
     permission: nsWorld.command.worldCreate
-    permission-message: "You do not have the required permission to run /worldCreate"
+    permission-message: "You do not have the required permission to run /wc"
+  wm:
+    description: generate world
+    usage: "wm {load|unload} {name}"
+    aliases: ["worldManage"]
+    permission: nsWorld.command.wm
+    permission-message: "You do not have the required permission to run /wm"
  
 permissions:
   nsWorld.command.world:
@@ -27,4 +33,6 @@ permissions:
   nsWorld.command.worldCreate:
     description: "generate world"
     default: op
-
+  nsWorld.command.wm:
+    description: "load or unload world"
+    default: op

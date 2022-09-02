@@ -3,3 +3,16 @@ world-list-footer: =============
 world-not-existed: §2世界§1{0}§2不存在
 world-tp-success: §2您已传送至§1{0}
 command-only-player: §2此命令仅玩家可用
+world-name-illegal: §2世界名称非法
+world-name-existed: §2世界名称已存在
+world-seed-illegal: §2世界种子仅支持数字
+world-type-illegal: §2未知世界类型
+world-wc-success: §2成功创建世界§1{0}
+world-wc-fail: §2世界§1{0}§2创建失败，更多信息请查看日志
+world-load-loaded: §2世界§1{0}§2已经被加载，勿重复加载
+world-load-success: §2成功加载世界§1{0}§2
+world-load-fail: §2世界§1{0}§2加载失败
+world-not-existedOrLoad: §2世界§1{0}§2不存在或未加载
+world-unload-success: §2成功卸载世界§1{0}§2
+world-unload-fail: §2世界§1{0}§2卸载失败
+

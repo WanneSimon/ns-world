@@ -1,7 +1,9 @@
 package cc.wanforme.nukkit.nsworld.cmd;
 
+import java.text.MessageFormat;
 import java.util.regex.Pattern;
 
+import cc.wanforme.nukkit.nsworld.LangHolder;
 import cc.wanforme.nukkit.spring.plugins.command.FixedOrderHandler;
 import cc.wanforme.nukkit.spring.util.NukkitServerUtil;
 import cn.nukkit.Server;
@@ -14,12 +16,12 @@ import cn.nukkit.level.generator.Generator;
  * @author wanne
  * @date 2022-08-30
  */
-public class WcHandler extends FixedOrderHandler {
+public class WorldCreateHandler extends FixedOrderHandler {
 	private static final String[] ARGS = { "{name}", 
 			"[0|flat|1|normal|2|default|3|nether|4|the_end]",
 			"[seed]"};
 	
-	public WcHandler(String main) {
+	public WorldCreateHandler(String main) {
 		super(main, ARGS);
 	}
 
@@ -28,10 +30,10 @@ public class WcHandler extends FixedOrderHandler {
 		String name = args[0];
 		String type = args.length > 1 ? args[1] : null;
 		String seed = args.length > 2 ? args[2] : null;
-		return this.createWorld(name, type, seed);
+		return this.createWorld(sender, name, type, seed);
 	}
 
-    protected boolean createWorld(String name, String type, String seedStr ) {
+    protected boolean createWorld(CommandSender sender, String name, String type, String seedStr) {
     	// wc {name} [type] [seed] 
     	
 //    	String name = "test";
@@ -43,12 +45,14 @@ public class WcHandler extends FixedOrderHandler {
     	// check name ( 数字字母下划线短横线 )
     	Pattern pattern = Pattern.compile("^([\\w-])+$");
     	if(pattern.matcher(name).matches()) {
-    		// illegal name
-    		return false;
+    		// illegal name 
+    		sender.sendMessage(LangHolder.Get("world-name-illegal"));
+    		return true;
     	}
     	
     	if(server.getLevelByName(name)!=null) {
     		// level existed;
+    		sender.sendMessage(LangHolder.Get("world-name-existed"));
     		return true;
     	}
     	
@@ -60,6 +64,7 @@ public class WcHandler extends FixedOrderHandler {
         		seed = Long.parseLong(seedStr);
     		} catch (NumberFormatException e) {
     			// invalid number
+    			sender.sendMessage(LangHolder.Get("world-seed-illegal"));
     			return true;
     		}
     	}
@@ -81,21 +86,25 @@ public class WcHandler extends FixedOrderHandler {
     	
     	if(type != null && genclazz == null) {
     		// 不匹配的类型
+    		sender.sendMessage(LangHolder.Get("world-type-illegal"));
     		return false;
     	}
     	
-    	boolean re = false; 
-    	try {
-        	re = server.generateLevel(name, seed, genclazz);
-		} catch (Exception e) {
-			// log errors 
-			return true;
-		}
+//    	boolean re = false; 
+//    	try {
+//        	re = server.generateLevel(name, seed, genclazz);
+//		} catch (Exception e) {
+//			// log errors 
+//			return true;
+//		}
 
-    	if(!re) {
+//    	if(!re) {
+    	if(!server.generateLevel(name, seed, genclazz)) {
     		// fail
+    		sender.sendMessage(MessageFormat.format(LangHolder.Get("world-wc-fail"), name));
     	} else {
     		// success
+    		sender.sendMessage(MessageFormat.format(LangHolder.Get("world-wc-success"), name));
     	}
 
     	return true;

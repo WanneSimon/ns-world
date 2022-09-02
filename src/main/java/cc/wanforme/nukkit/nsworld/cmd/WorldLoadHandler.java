@@ -1,5 +1,8 @@
 package cc.wanforme.nukkit.nsworld.cmd;
 
+import java.text.MessageFormat;
+
+import cc.wanforme.nukkit.nsworld.LangHolder;
 import cc.wanforme.nukkit.spring.plugins.command.FixedArgsHandler;
 import cc.wanforme.nukkit.spring.util.NukkitServerUtil;
 import cn.nukkit.Server;
@@ -8,14 +11,14 @@ import cn.nukkit.command.CommandSender;
 import cn.nukkit.level.Level;
 
 /** load a world
- * /wl {load|unload} {name}
+ * /wm {load|unload} {name}
  * @author wanne
  * @date 2022-08-30
  */
-public class WLoadHandler extends FixedArgsHandler {
+public class WorldLoadHandler extends FixedArgsHandler {
 	private static final String[] ARGS = { "{load|unload}", "{name}" };
 	
-	public WLoadHandler(String main) {
+	public WorldLoadHandler(String main) {
 		super(main, ARGS);
 	}
 
@@ -38,19 +41,23 @@ public class WLoadHandler extends FixedArgsHandler {
     	
     	if(!server.isLevelGenerated(name)) {
     		// this.getLanguage().translateString("nukkit.level.notFound", name)
+    		sender.sendMessage(MessageFormat.format(LangHolder.Get("world-not-existed"), name));
     		return true;
     	}
     	
     	if(server.isLevelLoaded(name)) {
     		// loaded
+    		sender.sendMessage(MessageFormat.format(LangHolder.Get("world-load-loaded"), name));
     		return true;
     	}
     	
     	boolean re = server.loadLevel(name);
     	if (re) {
     		// success
+    		sender.sendMessage(MessageFormat.format(LangHolder.Get("world-load-success"), name));
     	} else {
     		// fail
+    		sender.sendMessage(MessageFormat.format(LangHolder.Get("world-load-fail"), name));
     	}
     	return true;
     }
@@ -61,14 +68,17 @@ public class WLoadHandler extends FixedArgsHandler {
     	Level level = server.getLevelByName(name);
     	if(level==null) {
     		// not loaded
+    		sender.sendMessage(MessageFormat.format(LangHolder.Get("world-not-existedOrLoad"), name));
     		return true;
     	}
     	
     	boolean re = server.unloadLevel(level);
     	if (re) {
     		// success
+    		sender.sendMessage(MessageFormat.format(LangHolder.Get("world-unload-success"), name));
     	} else {
     		// fail
+    		sender.sendMessage(MessageFormat.format(LangHolder.Get("world-unload-fail"), name));
     	}
     	return true;
     }

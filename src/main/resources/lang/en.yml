@@ -3,3 +3,16 @@ world-list-footer: =============
 world-not-existed: §2The world §1{0} §2is not exist
 world-tp-success: §2You are in §1{0} §2now
 command-only-player: §2Only players allowed
+world-name-illegal: §2The world's name is illegal
+world-name-existed: §2The name is existed
+world-seed-illegal: §2The seed only supports integer
+world-type-illegal: §2Unknown level type
+world-wc-success: §2The world - §1{0} created
+world-wc-fail: §2The world §1{0}§2 failed to create, seeing reason in logs
+world-load-loaded: §2This world §1{0} §2had been loaded
+world-load-success: §2The world §1{0} §2 loaded
+world-load-fail: §2The world §1{0} §2fails to load
+world-not-existedOrLoad: §2The world §1{0} §2is not existed or not loaded
+world-unload-success: §2The world §1{0} §2 unlaoded
+world-unload-fail: §2The world §1{0} §2fails to unload 
+

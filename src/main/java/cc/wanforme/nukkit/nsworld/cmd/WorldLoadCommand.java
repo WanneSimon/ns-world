@@ -7,7 +7,7 @@ import cc.wanforme.nukkit.spring.plugins.command.NSCommand;
  * @date 2022-08-26
  */
 public class WorldLoadCommand extends NSCommand {
-	private static final String MAIN = "wl";
+	private static final String MAIN = "wm";
 	
 	public WorldLoadCommand() {
 		super(MAIN);
@@ -15,7 +15,7 @@ public class WorldLoadCommand extends NSCommand {
 
 	@Override
 	protected void initCommand() {
-		this.addHandler(new WLoadHandler(MAIN));
+		this.addHandler(new WorldLoadHandler(MAIN));
 	}
 
 }
